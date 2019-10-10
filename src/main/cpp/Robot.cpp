@@ -28,7 +28,7 @@
 
 //#include <math.h>
 
-TalonSRX frontRight{12},  frontLeft{11}, backRight{14}, backLeft{0};
+WPI_TalonSRX frontRight{12},  frontLeft{11}, backRight{14}, backLeft{0};
 frc::Joystick stick{0};
 frc::RobotDrive myRobot{frontRight, backRight, backLeft, frontLeft};
 frc::Timer timer;
