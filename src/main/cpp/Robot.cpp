@@ -27,7 +27,7 @@
 
 #include <math.h>
 
-frc::Talon frontRight{0},  frontLeft{1}, backRight{2}, backLeft{3};
+frc::Talon frontRight{12},  frontLeft{0}, backRight{14}, backLeft{13};
 frc::Joystick stick{0};
 frc::RobotDrive myRobot{frontRight, backRight, backLeft, frontLeft};
 frc::Timer timer;
