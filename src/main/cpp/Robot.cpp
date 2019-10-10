@@ -116,8 +116,8 @@ void Robot::TeleopPeriodic() {
     isUpPressed = false;
   }
   //drive with the left joystick
-  turn = stick.GetRawAxis(0) * sensitivity;
-  speed = -stick.GetRawAxis(0) * sensitivity;
+  turn = -stick.GetRawAxis(2) * 0.95;
+  speed = stick.GetRawAxis(1) * sensitivity;
   myRobot.ArcadeDrive(speed, turn);
 }
 
