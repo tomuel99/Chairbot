@@ -11,23 +11,24 @@
 #include <string>
 //weeee github
 #include <SageFunctions.h>
-#include <cameraServer/CameraServer.h>
+//#include <cameraServer/CameraServer.h>
 #include <frc/IterativeRobot.h>
 #include <frc/Joystick.h>
 #include <frc/SmartDashboard/SendableChooser.h>
 #include <frc/SmartDashboard/SmartDashboard.h>
 #include <frc/Timer.h>
 #include <frc/Talon.h>
-#include <frc/Encoder.h>
+//#include <frc/Encoder.h>
 #include <frc/WPILib.h>
 #include <frc/PowerDistributionPanel.h>
 #include <frc/LiveWindow/LiveWindow.h>
 #include "networktables/NetworkTable.h"
 #include "networkTables/NetworkTableInstance.h"
+#include <ctre/Phoenix.h>
 
 #include <math.h>
 
-frc::Talon frontRight{12},  frontLeft{0}, backRight{14}, backLeft{13};
+frc::TalonSRX frontRight{12},  frontLeft{11}, backRight{14}, backLeft{0};
 frc::Joystick stick{0};
 frc::RobotDrive myRobot{frontRight, backRight, backLeft, frontLeft};
 frc::Timer timer;
@@ -115,8 +116,8 @@ void Robot::TeleopPeriodic() {
     isUpPressed = false;
   }
   //drive with the left joystick
-  turn = trueMap(stick.GetRawAxis(0), 0.0, 1.0, -1.0, 1.0) * sensitivity;
-  speed = trueMap(stick.GetRawAxis(0), 0.0, 1.0, 1.0, -1.0) * sensitivity;
+  turn = stick.GetRawAxis(0) * sensitivity;
+  speed = -stick.GetRawAxis(0) * sensitivity;
   myRobot.ArcadeDrive(speed, turn);
 }
 
