@@ -17,7 +17,7 @@
 #include <frc/SmartDashboard/SendableChooser.h>
 #include <frc/SmartDashboard/SmartDashboard.h>
 #include <frc/Timer.h>
-#include <frc/Spark.h>
+#include <frc/Talon.h>
 #include <frc/Encoder.h>
 #include <frc/WPILib.h>
 #include <frc/PowerDistributionPanel.h>
@@ -27,7 +27,7 @@
 
 #include <math.h>
 
-frc::Spark frontRight{0},  frontLeft{1}, backRight{2}, backLeft{3};
+frc::Talon frontRight{0},  frontLeft{1}, backRight{2}, backLeft{3};
 frc::Joystick stick{0};
 frc::RobotDrive myRobot{frontRight, backRight, backLeft, frontLeft};
 frc::Timer timer;
