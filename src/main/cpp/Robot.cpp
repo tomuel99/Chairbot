@@ -90,7 +90,7 @@ void Robot::TeleopInit() {
   timer.Start();
   turn = 0;
   speed = 0;
-  sensitivity = 1;
+  sensitivity = 0.5;
 }
 
 void Robot::TeleopPeriodic() {
