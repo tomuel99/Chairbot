@@ -26,11 +26,13 @@
 #include "networktables/NetworkTable.h"
 #include "networkTables/NetworkTableInstance.h"
 #include <ctre/Phoenix.h>
+#include "rev/SparkMax.h"
 
 //#include <math.h>
 
-WPI_TalonSRX frontRight{12},  frontLeft{11}, backRight{14}, backLeft{0};
+WPI_TalonSRX frontRight{12}, backRight{14}, backLeft{0};
 frc::Joystick stick{0};
+rev::SparkMax frontLeft{0};
 frc::RobotDrive myRobot{frontRight, backRight, backLeft, frontLeft};
 frc::Timer timer;
 
