@@ -35,6 +35,7 @@ frc::Joystick stick{0};
 rev::SparkMax frontLeft{0};
 frc::RobotDrive myRobot{frontRight, backRight, backLeft, frontLeft};
 frc::Timer timer;
+frc::SendableChooser autoChoice;
 
 double speed, turn, sensitivity;
 bool isUpPressed, isDownPressed;
@@ -126,7 +127,9 @@ void Robot::TeleopPeriodic() {
   myRobot.ArcadeDrive(speed, turn);
 }
 
-void Robot::TestPeriodic() {}
+void Robot::TestPeriodic() {
+  frc::SmartDashboard::PutString("Haha, you fool!", "Thundercross split attack!");
+}
 
 #ifndef RUNNING_FRC_TESTS
 int main() { return frc::StartRobot<Robot>(); }
