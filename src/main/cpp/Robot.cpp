@@ -35,6 +35,7 @@ frc::Joystick stick{0};
 rev::SparkMax frontLeft{0};
 frc::RobotDrive myRobot{backRight, backLeft};
 frc::Timer timer;
+frc::SendableChooser autoChoice;
 
 double speed, turn, sensitivity;
 bool isUpPressed, isDownPressed;
@@ -43,6 +44,7 @@ void Robot::RobotInit() {
   m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
   m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+  frc::SmartDashboard::PutNumber("Timer", timer.Get());
 }
 
 /**
@@ -125,7 +127,9 @@ void Robot::TeleopPeriodic() {
   myRobot.ArcadeDrive(speed, turn);
 }
 
-void Robot::TestPeriodic() {}
+void Robot::TestPeriodic() {
+  frc::SmartDashboard::PutString("Haha, you fool!", "Thundercross split attack!");
+}
 
 #ifndef RUNNING_FRC_TESTS
 int main() { return frc::StartRobot<Robot>(); }
