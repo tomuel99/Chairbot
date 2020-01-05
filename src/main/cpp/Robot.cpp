@@ -33,7 +33,7 @@
 WPI_TalonSRX frontRight{12}, backRight{14}, backLeft{0};
 frc::Joystick stick{0};
 rev::SparkMax frontLeft{0};
-frc::RobotDrive myRobot{frontRight, backRight, backLeft, frontLeft};
+frc::RobotDrive myRobot{backRight, backLeft};
 frc::Timer timer;
 
 double speed, turn, sensitivity;
@@ -120,8 +120,8 @@ void Robot::TeleopPeriodic() {
   }
   else {}
   //drive with the left joystick
-  turn = -stick.GetRawAxis(0) * 0.95;
-  speed = stick.GetRawAxis(1) * sensitivity;
+  turn = -stick.GetRawAxis(1) * 0.95;
+  speed = stick.GetRawAxis(4) * sensitivity;
   myRobot.ArcadeDrive(speed, turn);
 }
 
