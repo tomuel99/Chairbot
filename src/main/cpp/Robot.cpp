@@ -33,7 +33,7 @@
 WPI_TalonSRX frontRight{12}, backRight{14}, backLeft{0};
 frc::Joystick stick{0};
 rev::SparkMax frontLeft{0};
-frc::RobotDrive myRobot{backRight, backLeft};
+frc::RobotDrive myRobot{frontLeft, frontRight, backLeft, backRight};
 frc::Timer timer;
 frc::SendableChooser autoChoice;
 
