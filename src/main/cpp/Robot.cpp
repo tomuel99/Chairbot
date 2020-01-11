@@ -99,16 +99,16 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
   //increase sensitivity with the right bumper
-  if (stick.GetRawButton(1) && sensitivity < 1.0) {
+  if (stick.GetRawButton(5) && sensitivity < 1.0) {
     sensitivity += 0.01;
   }
-  else if (stick.GetRawButton(1)) {
+  else if (stick.GetRawButton(5)) {
     sensitivity += 0;
   }
-  else if (stick.GetRawButton(2) && sensitivity > 0.0) {
+  else if (stick.GetRawButton(6) && sensitivity > 0.0) {
     sensitivity -= 0.01;
   }
-  else if (stick.GetRawButton(2)) {
+  else if (stick.GetRawButton(6)) {
     sensitivity -= 0;
   }
   else {
@@ -122,8 +122,8 @@ void Robot::TeleopPeriodic() {
   }
   else {}
   //drive with the left joystick
-  turn = -stick.GetRawAxis(1) * 0.95;
-  speed = stick.GetRawAxis(4) * sensitivity;
+  turn = stick.GetRawAxis(0) * 0.95;
+  speed = -stick.GetRawAxis(1) * sensitivity;
   myRobot.ArcadeDrive(speed, turn);
 }
 
